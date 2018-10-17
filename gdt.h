@@ -3,10 +3,10 @@
 
 #include "common/types.h"
 
-class GlobalDescripterTable{
+class GlobalDescriptorTable{
         
         public:
-            class SegmentDescripter {
+            class SegmentDescriptor {
             
             private:
                 uint16_t limit_lo;
@@ -17,21 +17,21 @@ class GlobalDescripterTable{
                 uint8_t base_vhi;
             
             public:
-                SegmentDescripter (uint32_t base,uint32_t limit,uint8_t type);
+                SegmentDescriptor (uint32_t base,uint32_t limit,uint8_t type);
                 uint32_t Base ();
                 uint32_t Limit();
             
         } __attribute__((packed));
        
         
-        SegmentDescripter nullSegmentSelector;
-        SegmentDescripter unusedSegmentSelector;
-        SegmentDescripter codeSegmentSelector;
-        SegmentDescripter dataSegmentSelector;
+        SegmentDescriptor nullSegmentSelector;
+        SegmentDescriptor unusedSegmentSelector;
+        SegmentDescriptor codeSegmentSelector;
+        SegmentDescriptor dataSegmentSelector;
         
     public:
-        GlobalDescripterTable();
-        ~GlobalDescripterTable();
+        GlobalDescriptorTable();
+        ~GlobalDescriptorTable();
         
         uint16_t CodeSegmentSelector();
         uint16_t DataSegmentSelector();
